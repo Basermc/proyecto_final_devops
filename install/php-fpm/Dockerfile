@@ -1,6 +1,6 @@
 FROM php:7.2-fpm
 
-MAINTAINER Andri Kurnia Putra <andri.24434@gmail.com>
+MAINTAINER Jonatan Bravo Castan jonibrvc@gmail.com>
 
 RUN apt-get update && \
     apt-get install -y \

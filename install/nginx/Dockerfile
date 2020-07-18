@@ -1,5 +1,7 @@
 FROM debian:jessie
 
+MAINTAINER Jonatan Bravo Castan jonibrvc@gmail.com>
+
 RUN apt-get update && \
     apt-get install -y nginx && \
     apt-get clean && \
