@@ -16,17 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    
-    - name: Set env TAG
-      run: echo ::set-env name=CURR_TAG::sha-$(echo $GITHUB_SHA | cut -c 1-7)
-
-    - name: Set env DEPLOY_MODE
-      run: echo ::set-env name=DEPLOY_MODE::${{ secrets.DEPLOY_MODE }}
-    
-    - name: Set env IMAGE_NAME
+    - name: docker-compose
       run: docker-compose up -d --build
-    - uses: docker/build-push-action@v1
-      with:
-        tag_with_ref: true
-        tags: latest,${{ env.CURR_TAG }}
-        push: false
+    
