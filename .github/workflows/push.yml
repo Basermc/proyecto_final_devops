@@ -12,5 +12,5 @@ jobs:
     - name: Build the docker-compose stack
       run: docker-compose up -d --build
     - name: Check running containers
-      run: docker ps -a
+      run: docker images
   
