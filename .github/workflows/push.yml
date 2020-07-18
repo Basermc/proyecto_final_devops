@@ -1,17 +1,32 @@
-on: push
-name: deploy
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  ONWER_ID: jonatan-bravo
+
 jobs:
-  deploy:
-    name: deploy to cluster
+  build-test-push:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: build and push to docker
-      uses: docker/build-push-action@v1
+    - uses: actions/checkout@v2
+    
+    - name: Set env TAG
+      run: echo ::set-env name=CURR_TAG::sha-$(echo $GITHUB_SHA | cut -c 1-7)
+
+    - name: Set env DEPLOY_MODE
+      run: echo ::set-env name=DEPLOY_MODE::${{ secrets.DEPLOY_MODE }}
+    
+    - name: Set env IMAGE_NAME
+      run: echo ::set-env name=IMAGE_NAME::basermc/proyecto_final_devops
+    - uses: docker/build-push-action@v1
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: ${{ secrets.DOCKER.REPOSITORY }}
         tag_with_ref: true
-        tag_with_sha: true
-        tags: ${{ github.sha }}
+        tags: latest,${{ env.CURR_TAG }}
+        push: false
