@@ -1,5 +1,12 @@
-name: Deploy
-on: [push]
+name: CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  ONWER_ID: jonatan-bravo
 jobs:
   build:
     runs-on: ubuntu-18.04
