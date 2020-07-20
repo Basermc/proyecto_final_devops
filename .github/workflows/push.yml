@@ -10,6 +10,11 @@ jobs:
       run: docker-compose build
     - name: Check out the repo
       uses: actions/checkout@v2
+    - name: Set env TAG
+      run: echo ::set-env name=CURR_TAG::sha-$(echo $GITHUB_SHA | cut -c 1-7)
     - name: check Docker images
       run: docker images
+
+  
+
    
