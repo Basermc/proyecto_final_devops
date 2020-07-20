@@ -10,7 +10,7 @@ cd Docker-Nginx-PHP-MySQL
 ````
 
 Run on container
--------------
+-------------`
 ```bash
 sudo make run
 ```
