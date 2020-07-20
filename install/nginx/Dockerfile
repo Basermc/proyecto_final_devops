@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
     
-COPY install/nginx//nginx.conf /etc/nginx/
+COPY nginx.conf /etc/nginx/
 COPY app.conf /etc/nginx/sites-available/
 
 RUN ln -s /etc/nginx/sites-available/app.conf /etc/nginx/sites-enabled/app
