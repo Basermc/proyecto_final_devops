@@ -26,7 +26,7 @@ jobs:
       run: echo ::set-env name=DEPLOY_MODE::${{ secrets.DEPLOY_MODE }}
     
     - name: Set env IMAGE_NAME
-      run: echo ::set-env name=IMAGE_NAME::basermc1/project_geekhubs
+      run: echo ::set-env name=IMAGE_NAME::basermc/proyecto_final_devops
     - uses: docker/build-push-action@v1
       with:
         tag_with_ref: true
