@@ -7,7 +7,7 @@ Build image
 git clone https://github.com/Basermc/proyecto_final_devops.git
 cd Docker-Nginx-PHP-MySQL
 
-```
+````
 
 Run on container
 -------------
