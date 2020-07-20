@@ -1,16 +1,13 @@
-name: Docker Image CI
-
+name: Deploy
 on: [push]
-
 jobs:
-
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v1
-    - name: Build the docker-compose stack
-      run: docker-compose up -d --build
-    - name: Check running containers
-      run: docker images
-  
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Build Docker images
+      run: docker-compose build
+    - name: Build website
+      run: docker-compose run builder
+    
