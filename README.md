@@ -20,4 +20,4 @@ install monitoring-stack
 ```bash
 cd ./monitoring-stack
 docker-compose up -d --build
-```
+`````

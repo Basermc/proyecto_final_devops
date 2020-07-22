@@ -1,7 +1,7 @@
 version: "3"
 services:
     php-fpm:
-        build: install/php-fpm
+        image: basermc1/php-fpm:latest
         ports:
             - 9010:9000
         volumes:
@@ -12,7 +12,7 @@ services:
          app_net:
             ipv4_address: 192.168.20.10
     nginx:
-        build: install/nginx
+        image: basermc1/nginx:latest
         ports:
             - 8080:80
         volumes:
@@ -23,7 +23,7 @@ services:
          app_net:
             ipv4_address: 192.168.20.11
     db:
-        build: install/mysql
+        image: basermc1/mysql:latest
         ports:
             - 3308:3306
         restart: always
