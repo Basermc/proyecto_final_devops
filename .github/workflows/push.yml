@@ -14,13 +14,9 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Set env TAG
-      run: echo ::set-env name=CURR_TAG::sha-$(echo $GITHUB_SHA | cut -c 1-7)
-
-    - name: Set env DEPLOY_MODE
-      run: echo ::set-env name=DEPLOY_MODE::${{ secrets.DEPLOY_MODE }}
-    
+      run: echo ::set-env name=CURR_TAG::sha-$(echo $GITHUB_SHA | cut -c 1-7) 
     - name: Set env IMAGE_NAME
-      run: echo ::set-env name=IMAGE_NAME::basermc/proyecto_final_devops
+      run: echo ::set-env name=IMAGE_NAME::Basermc/proyecto_final_devops
     - uses: docker/build-push-action@v1
       with:
         tag_with_ref: true
