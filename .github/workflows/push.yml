@@ -22,7 +22,10 @@ jobs:
         tag_with_ref: true
         tags: latest,${{ env.CURR_TAG }}
         push: false
-
+    - name: Teststep
+      run: |
+        ls && cat install/nginx/Dockerfile
+        
     - uses: docker/build-push-action@v1
       if: ${{ github.ref == 'refs/heads/master' }}
       with:
@@ -33,4 +36,7 @@ jobs:
         tag_with_ref: true
         tag_with_sha: true
         tags: latest
+
+
+   
    
