@@ -21,6 +21,6 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: ${{ secrets.MY_PHP_NGINX_REPO }}
         tag_with_ref: false
-        tags: ${{ env.CURR_TAG }}
+        tags: latest,${{ env.CURR_TAG }}
         tag_with_sha: false
    
