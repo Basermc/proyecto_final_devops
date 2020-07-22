@@ -20,7 +20,11 @@ jobs:
     - name: Teststep
       run: |
         ls && cat install/nginx/Dockerfile
+    - name: Teststep
+      run: |
+        pwd
     - uses: docker/build-push-action@v1
+    
       with:
         tag_with_ref: true
         tags: latest,${{ env.CURR_TAG }}
