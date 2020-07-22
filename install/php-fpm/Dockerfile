@@ -21,7 +21,7 @@ RUN apt-get update && \
     docker-php-ext-install gd pdo pdo_mysql pdo_sqlite zip gmp bcmath pcntl ldap sysvmsg exif mysqli
         
 
-COPY symfony.pool.conf  /usr/local/etc/
+COPY install/php-fpm/symfony.pool.conf  /usr/local/etc/
 
 # install php composer
 RUN curl -sS https://getcomposer.org/installer | php
