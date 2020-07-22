@@ -9,7 +9,7 @@ jobs:
     - name: build and push to docker
       uses: docker/build-push-action@v1
       with:
-        dockerfile: 'install/nginx/Dockerfile'
+        dockerfile: install/nginx/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: ${{ secrets.MY_PHP_NGINX_REPO }}
