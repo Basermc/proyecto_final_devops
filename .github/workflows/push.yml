@@ -11,15 +11,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
     - uses: actions/checkout@v2
-    - name: Build and push Docker images
+    
+    - name: Set env TAG
+      run: echo ::set-env name=CURR_TAG::sha-$(echo $GITHUB_SHA | cut -c 1-7) 
+    
+    - name: Set env IMAGE_NAME
+      run: echo ::set-env name=IMAGE_NAME::basermc/proyecto_final_devops
+      env:
+       IMAGE: ${{ env.IMAGE_NAME  }}:${{ env.CURR_TAG }}
+
     - uses: docker/build-push-action@v1
+      if: ${{ github.ref == 'refs/heads/master' }}
       with:
         dockerfile: 'install/nginx/Dockerfile'
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: ${{ secrets.MY_PHP_NGINX_REPO }}
-        tags: latest
-    
-  
+        tag_with_ref: true
+        tags: ${{ env.CURR_TAG }}
+        tag_with_sha: false
+     
+
+   
+   
