@@ -4,8 +4,6 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-env:
-  ONWER_ID: jonatan-bravo
 jobs:
   build-test-push:
     runs-on: ubuntu-latest
@@ -21,6 +19,6 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: ${{ secrets.MY_PHP_NGINX_REPO }}
         tag_with_ref: false
-        tags: latest,${{ env.CURR_TAG }}
+        tags: ${{ env.CURR_TAG }}
         tag_with_sha: false
    
