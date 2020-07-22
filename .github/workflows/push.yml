@@ -12,6 +12,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Set env TAG
+      run: echo ::set-env name=CURR_TAG::sha-$(echo $GITHUB_SHA | cut -c 1-7) 
+   
     - name: Teststep
       run: |
         ls && cat install/nginx/Dockerfile
