@@ -22,10 +22,6 @@ jobs:
     - name: Teststep
       run: |
         pwd
-    - name: Teststep
-      run: |
-        cd install/nginx && ls
-
     - uses: docker/build-push-action@v1
     
       with:
@@ -35,12 +31,12 @@ jobs:
     - uses: docker/build-push-action@v1
       if: ${{ github.ref == 'refs/heads/master' }}
       with:
+        image: install/nginx/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: ${{ secrets.MY_PHP_NGINX_REPO }}
         tag_with_ref: true
         tag_with_sha: true
-        dockerfile: Dockerfile
         tags: latest
 
    
