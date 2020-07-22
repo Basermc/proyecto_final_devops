@@ -11,18 +11,6 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-    - name: Build Docker images
-      run: docker-compose build
-    - name: Check out the repo
-      uses: actions/checkout@v2
-    - name: Set env TAG
-      run: echo ::set-env name=CURR_TAG::sha-$(echo $GITHUB_SHA | cut -c 1-7)
-    - name: Set env IMAGE_NAME
-      run: echo ::set-env name=IMAGE_NAME::Basermc/proyecto_final_devops
-    - name: check Docker images
-      run: docker images
     - uses: docker/build-push-action@v1
       if: ${{ github.ref == 'refs/heads/master' }}
       with:
