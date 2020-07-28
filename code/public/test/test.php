@@ -1,6 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
-require_once("./bienvenida.php"); 
+require_once("code/public/bienvenida.php"); 
 
 class writeMsgtest extends TestCase {
     /** @test */
