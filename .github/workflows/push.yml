@@ -12,7 +12,10 @@ jobs:
     - name: Set env TAG
       run: echo ::set-env name=CURR_TAG::sha-$(echo $GITHUB_SHA | cut -c 1-7) 
     - name: Unit-Test
-      run:  /home/runner/work/proyecto_final_devops/proyecto_final_devops/code/public/vendor/bin/phpunit   /home/runner/work/proyecto_final_devops/proyecto_final_devops/code/public/test/test.php
+      run: chmod +x code/*
+    - name: Unit-Test
+      run: vendor/bin/phpunit  test/test.php
+
     
       #deploy nginx to DHUB
     - uses: docker/build-push-action@v1
