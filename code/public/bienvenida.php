@@ -6,7 +6,16 @@
 </head>
 </html>
 <body>
-<h4>Bienvenido <?php echo $usuario?></h4>
+<?php
+function writeMsg() {
+  return "Bienvenido DeVops"; 
+ 
+}
+
+writeMsg(); 
+
+?>
+<br/>
 <a href='pagina_dos.php'>Ir pagina 2</a>
 </body>
 </html>
