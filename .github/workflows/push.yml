@@ -11,8 +11,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Set env TAG
       run: echo ::set-env name=CURR_TAG::sha-$(echo $GITHUB_SHA | cut -c 1-7) 
+         
     - name: Unit-Test
-      run: chmod +x code/public/vendor/bin/phpunit
+      run: code/public/vendor/phpunit/phpunit/phpunit --version
     - name: Unit-Test
       run: code/public/vendor/bin/phpunit  test/test.php
 
