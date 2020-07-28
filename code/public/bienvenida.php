@@ -8,11 +8,15 @@
 <body>
 <?php
 function writeMsg() {
-  return "Bienvenido DeVops"; 
+  return "Bienvenido"; 
  
 }
 
-writeMsg(); 
+echo writeMsg();
+?>
+&nbsp;
+<?php
+echo $usuario;
 
 ?>
 <br/>
