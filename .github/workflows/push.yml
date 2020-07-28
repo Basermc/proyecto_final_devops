@@ -15,7 +15,7 @@ jobs:
     - name: Unit-Test
       run: code/public/vendor/phpunit/phpunit/phpunit --version
     - name: Unit-Test
-      run: code/public/vendor/bin/phpunit  test/test.php
+      run: code/public/vendor/phpunit/phpunit/phpunit  code/public/test/test.php
 
     
       #deploy nginx to DHUB
