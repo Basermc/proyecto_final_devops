@@ -13,6 +13,8 @@ jobs:
       run: echo ::set-env name=CURR_TAG::sha-$(echo $GITHUB_SHA | cut -c 1-7) 
     - name: Unit-Test-Bienvenido
       run: code/public/vendor/phpunit/phpunit/phpunit  code/public/test/test.php
+    - name: Unit-Test-DirectoryAndFileExists
+      run: code/public/vendor/phpunit/phpunit/phpunit  code/public/test/directoryexist.php
 
     
       #deploy nginx to DHUB
