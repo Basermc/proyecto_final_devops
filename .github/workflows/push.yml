@@ -12,7 +12,7 @@ jobs:
     - name: Set env TAG
       run: echo ::set-env name=CURR_TAG::sha-$(echo $GITHUB_SHA | cut -c 1-7) 
     - name: Unit-Test
-      run: chmod +x code/*
+      run: chmod +ux code/public/vendor/bin/phpunit
     - name: Unit-Test
       run: code/public/vendor/bin/phpunit  test/test.php
 
