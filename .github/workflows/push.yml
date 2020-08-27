@@ -51,11 +51,10 @@ jobs:
         tags: latest,${{ env.CURR_TAG }}
         tag_with_sha: false
     
-    - name: ls -a via ssh
-      uses: garygrossgarten/github-action-ssh@release
+    - name: Execute SSH commmands on remote server
+      uses: JimCronqvist/action-ssh@master
       with:
-       command: ls -a
-       host: ${{ secrets.HOST }}
-       username: ubuntu
-       privateKey: ${{ secrets.PRIVATE_KEY}}
+       hosts: 'ubuntu@192.168.1.86'
+       privateKey: ${{ secrets.PRIVATE_KEY }}
+       command: ls -lah
    
