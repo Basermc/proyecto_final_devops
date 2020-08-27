@@ -51,14 +51,13 @@ jobs:
         tags: latest,${{ env.CURR_TAG }}
         tag_with_sha: false
     
-    - name: ls -a via ssh
-      uses: fifsky/ssh-action@master
+    - name: multiple command
+      uses: appleboy/ssh-action@master
       with:
-       command: |
-        cd /tmp
-        ls -a
-       host: ${{ secrets.HOST }}
-       user: ubuntu
-       key: ${{ secrets.PRIVATE_KEY}}
-       args: -tt
+        host: ${{ secrets.HOST }}
+        username: ubuntu
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: 22
+        command: |
+          mkdir prueba
    
