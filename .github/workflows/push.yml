@@ -62,4 +62,4 @@ jobs:
        script: |
         whoami
         ls -al
-
+        cat
