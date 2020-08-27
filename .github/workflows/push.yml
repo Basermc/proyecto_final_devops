@@ -50,15 +50,12 @@ jobs:
         tag_with_ref: false
         tags: latest,${{ env.CURR_TAG }}
         tag_with_sha: false
-    - name: Deploy to Docker swarm
-      uses: wshihadeh/docker-deployment-action@v1
+    - name: ls -a via ssh
+      uses: fifsky/ssh-action@master
       with:
-       remote_docker_host: user@myswarm.com
-       ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-       ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-       deployment_mode: docker-swarm
-       copy_stack_file: true
-       deploy_path: ./docker-compose.yml
-       stack_file_name: docker-compose.yml
-       keep_files: 5
-       args: my_applicaion
+       command: |
+        cd /tmp
+        ls -a
+        host: ${{ secrets.HOST }}
+        user: jonatan
+        key: ${{ secrets.DOCKER_PRIVATE_KEY}}
