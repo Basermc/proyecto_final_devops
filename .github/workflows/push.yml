@@ -54,7 +54,7 @@ jobs:
     - name: Execute SSH commmands on remote server
       uses: JimCronqvist/action-ssh@master
       with:
-       hosts: 'ubuntu@192.168.1.86'
+       hosts: 'ubuntu@192.168.1.86:22'
        privateKey: ${{ secrets.PRIVATE_KEY }}
        command: ls -lah
    
