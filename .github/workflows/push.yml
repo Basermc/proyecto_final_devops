@@ -50,14 +50,12 @@ jobs:
         tag_with_ref: false
         tags: latest,${{ env.CURR_TAG }}
         tag_with_sha: false
-      
+    
     - name: ls -a via ssh
-      uses: fifsky/ssh-action@master
+      uses: garygrossgarten/github-action-ssh@release
       with:
-       command: |
-        cd /tmp
-        ls -a
+       command: ls -a
        host: ${{ secrets.HOST }}
-       user: ubuntu
-       key: ${{ secrets.PRIVATE_KEY}}
+       username: ubuntu
+       privateKey: ${{ secrets.PRIVATE_KEY}}
    
