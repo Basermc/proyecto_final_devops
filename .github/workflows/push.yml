@@ -51,13 +51,12 @@ jobs:
         tags: latest,${{ env.CURR_TAG }}
         tag_with_sha: false
     
-    - name: multiple command
+    - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
-        username: ubuntu
-        key: ${{ secrets.PRIVATE_KEY }}
-        port: 22
-        command: |
-          mkdir prueba
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        command: ls
    
