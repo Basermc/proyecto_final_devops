@@ -50,12 +50,8 @@ jobs:
         tag_with_ref: false
         tags: latest,${{ env.CURR_TAG }}
         tag_with_sha: false
-    - name: ls -a via ssh
-      uses: fifsky/ssh-action@master
-      with:
-       command: |
-        cd /tmp
-        ls -a
-        host: ${{ secrets.HOST }}
-        user: jonatan
-        key: ${{ secrets.DOCKER_PRIVATE_KEY}}
+      
+    - uses: actions/checkout@v2
+    - name: Build the stack
+      run: docker-compose up -d
+   
