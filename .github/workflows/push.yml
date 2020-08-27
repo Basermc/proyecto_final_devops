@@ -60,4 +60,5 @@ jobs:
        host: ${{ secrets.HOST }}
        user: ubuntu
        key: ${{ secrets.PRIVATE_KEY}}
+       args: -tt
    
